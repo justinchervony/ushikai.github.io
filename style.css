@@ -31,11 +31,17 @@ input[type=text]{
 	border-color: silver;
 }
 
-#button {
+#button, #formSubmit {
 	transition-duration: .3s;
 }
 
-#button:hover {
+#button:hover, #formSubmit:hover {
 	background-color: lightyellow;
 	color: yellowgreen;
+}
+
+
+.fullResults{
+	background-color: rgba(115, 115, 115, .5);
+
 }

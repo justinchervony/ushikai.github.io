@@ -23,7 +23,21 @@ var castersAmount = 0;
 var meleesAmount = 0;
 var rangedAmount = 0;
 var amountOrder = [];
-var amountOrder = {tanksAmount, regensAmount, shieldsAmount, meleesAmount, rangedAmount, castersAmount};
+var amountOrderStrings = [];
+
+var needsJob = [true, true, true, true, true, true, true, true];
+
+var finalJob1 = "";
+var finalJob2 = "";
+var finalJob3 = "";
+var finalJob4 = "";
+var finalJob5 = "";
+var finalJob6 = "";
+var finalJob7 = "";
+var finalJob8 = "";
+var finalJobs = ["","","","","","","",""]
+
+
 
 
 //Pushes all form data into respective Arrays
@@ -386,6 +400,9 @@ function getNumberOfJobs(){
             if (x==2 || x==6 || x==10 || x==14 || x==18 || x==22 || x==26 || x==30){
                 x+=2;
             }
+            else{
+                x++
+            }
         }
         else {
             x++
@@ -394,11 +411,19 @@ function getNumberOfJobs(){
     var x = 0;
     console.log("Tanks: " + tanksAmount);
 
+    amountOrder.push(tanksAmount);
+    amountOrderStrings.push("Tanks")
+    console.log(amountOrderStrings);
+    console.log(amountOrder);
+
     while (x < regens.length){
         if (regens[x] === true) {
             regensAmount = regensAmount + 1;
             if (x==0 || x==2 || x==4 || x==6 || x==8 || x==10 || x==12 || x==14){
                 x+=2;
+            }
+            else{
+                x++
             }
         }
         else {
@@ -408,11 +433,25 @@ function getNumberOfJobs(){
     var x = 0;
     console.log("Regen Healers: " + regensAmount);
 
+    if (tanksAmount>=regensAmount) {
+        amountOrder.splice(0, 0, regensAmount);
+        amountOrderStrings.splice(0, 0, "Regens");
+    }
+    else {
+    amountOrder.push(regensAmount);
+    amountOrderStrings.push("Regens");
+    }
+    console.log(amountOrderStrings);
+    console.log(amountOrder);
+
     while (x < shields.length){
         if (shields[x] === true) {
             shieldsAmount = shieldsAmount + 1;
             if (x==0 || x==2 || x==4 || x==6 || x==8 || x==10 || x==12 || x==14){
                 x+=2;
+            }
+            else{
+                x++
             }
         }
         else {
@@ -421,6 +460,21 @@ function getNumberOfJobs(){
     }
     var x = 0;
     console.log("Shield Healers: " + shieldsAmount);
+
+    if (amountOrder[0]>=shieldsAmount) {
+        amountOrder.splice(0, 0, shieldsAmount);
+        amountOrderStrings.splice(0, 0, "Shields");
+    }
+    else if (amountOrder[1]>=shieldsAmount) {
+        amountOrder.splice(1, 0, shieldsAmount);
+        amountOrderStrings.splice(1, 0, "Shields");
+    }
+    else {
+    amountOrder.push(shieldsAmount);
+    amountOrderStrings.push("Shields");
+    }
+    console.log(amountOrderStrings);
+    console.log(amountOrder);
 
     while (x < melees.length){
         if (melees[x] === true) {
@@ -437,6 +491,9 @@ function getNumberOfJobs(){
             if (x==3 || x==8 || x==13 || x==18 || x==23 || x==28 || x==33 || x==38){
                 x+=2;
             }
+            else{
+                x++
+            }
         }
         else {
             x++
@@ -444,6 +501,25 @@ function getNumberOfJobs(){
     }
     var x = 0;
     console.log("Melee: " + meleesAmount);
+
+    if (amountOrder[0]>=meleesAmount) {
+        amountOrder.splice(0, 0, meleesAmount);
+        amountOrderStrings.splice(0, 0, "Melees");
+    }
+    else if (amountOrder[1]>=meleesAmount) {
+        amountOrder.splice(1, 0, meleesAmount);
+        amountOrderStrings.splice(1, 0, "Melees");
+    }
+    else if (amountOrder[2]>=meleesAmount) {
+        amountOrder.splice(2, 0, meleesAmount);
+        amountOrderStrings.splice(2, 0, "Melees");
+    }
+    else {
+    amountOrder.push(meleesAmount);
+    amountOrderStrings.push("Melees");
+    }
+    console.log(amountOrderStrings);
+    console.log(amountOrder);
 
     while (x < ranged.length){
         if (ranged[x] === true) {
@@ -454,6 +530,9 @@ function getNumberOfJobs(){
             if (x==1 || x==4 || x==7 || x==10 || x==13 || x==16 || x==19 || x==22){
                 x+=2;
             }
+            else{
+                x++
+            }
         }
         else {
             x++
@@ -461,6 +540,30 @@ function getNumberOfJobs(){
     }
     var x = 0;
     console.log("Ranged: " + rangedAmount);
+
+    if (amountOrder[0]>=rangedAmount) {
+        amountOrder.splice(0, 0, rangedAmount);
+        amountOrderStrings.splice(0, 0, "Ranged");
+    }
+    else if (amountOrder[1]>=rangedAmount) {
+        amountOrder.splice(1, 0, rangedAmount);
+        amountOrderStrings.splice(1, 0, "Ranged");
+    }
+    else if (amountOrder[2]>=rangedAmount) {
+        amountOrder.splice(2, 0, rangedAmount);
+        amountOrderStrings.splice(2, 0, "Ranged");
+    }
+    else if (amountOrder[3]>=rangedAmount) {
+        amountOrder.splice(3, 0, rangedAmount);
+        amountOrderStrings.splice(3, 0, "Ranged");
+    }
+    else {
+    amountOrder.push(rangedAmount);
+    amountOrderStrings.push("Ranged");
+    }
+    console.log(amountOrderStrings);
+    console.log(amountOrder);
+
 
     while (x < casters.length){
         if (casters[x] === true) {
@@ -471,6 +574,9 @@ function getNumberOfJobs(){
             if (x==1 || x==4 || x==7 || x==10 || x==13 || x==16 || x==19 || x==22){
                 x+=2;
             }
+            else{
+                x++
+            }
         }
         else {
             x++
@@ -478,9 +584,1187 @@ function getNumberOfJobs(){
     }
     var x = 0;
     console.log("Casters: " + castersAmount);
+
+    if (amountOrder[0]>=castersAmount) {
+        amountOrder.splice(0, 0, castersAmount);
+        amountOrderStrings.splice(0, 0, "Casters");
+    }
+    else if (amountOrder[1]>=castersAmount) {
+        amountOrder.splice(1, 0, castersAmount);
+        amountOrderStrings.splice(1, 0, "Casters");
+    }
+    else if (amountOrder[2]>=castersAmount) {
+        amountOrder.splice(2, 0, castersAmount);
+        amountOrderStrings.splice(2, 0, "Casters");
+    }
+    else if (amountOrder[3]>=castersAmount) {
+        amountOrder.splice(3, 0, castersAmount);
+        amountOrderStrings.splice(3, 0, "Casters");
+    }
+    else if (amountOrder[4]>=castersAmount) {
+        amountOrder.splice(4, 0, castersAmount);
+        amountOrderStrings.splice(4, 0, "Casters");
+    }
+    else {
+    amountOrder.push(castersAmount);
+    amountOrderStrings.push("Casters");
+    }
+    console.log(amountOrderStrings);
     console.log(amountOrder);
-    amountOrder.sort();
-    console.log(amountOrder);
+
+}
+
+function pickJobs(){
+    var member = 0;
+    var job = 0;
+    var jobSpot  = 0;
+    var i = 0;
+    //var y = amountOrderStrings
+
+    switch (amountOrderStrings[0]) {
+        case "Tanks":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*4);
+                jobSpot = (member*4) + job;
+    
+                if (tanks[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "PLD";
+                            break;
+                        case 1:
+                            finalJobs[member] = "WAR";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DRK";
+                            break;
+                        case 3:
+                            finalJobs[member] = "GNB";
+                    }
+
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Regens":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (regens[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "WHM";
+                            break;
+                        case 1:
+                            finalJobs[member] = "AST";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Shields":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (shields[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "SCH";
+                            break;
+                        case 1:
+                            finalJobs[member] = "SGE";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Melees":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*5);
+                jobSpot = (member*5) + job;
+    
+                if (melees[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "MNK";
+                            break;
+                        case 1:
+                            finalJobs[member] = "DRG";
+                            break;
+                        case 2:
+                            finalJobs[member] = "NIN";
+                            break;
+                        case 3:
+                            finalJobs[member] = "SAM";
+                            break;
+                        case 4:
+                            finalJobs[member] = "RPR";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Ranged":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (ranged[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BRD";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "MCH";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DNC";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Casters":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (casters[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BLM";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "SMN";
+                            break;
+                        case 2:
+                            finalJobs[member] = "RDM";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+
+                }
+            }
+            break
+    
+    }
+                console.log(member);
+                console.log(job);
+                console.log(jobSpot);
+                console.log(i);
+                console.log(needsJob);
+                console.log(finalJobs);
+    i = 0;
+    switch (amountOrderStrings[1]) {
+        case "Tanks":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*4);
+                jobSpot = (member*4) + job;
+    
+                if (tanks[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "PLD";
+                            break;
+                        case 1:
+                            finalJobs[member] = "WAR";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DRK";
+                            break;
+                        case 3:
+                            finalJobs[member] = "GNB";
+                    }
+
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Regens":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (regens[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "WHM";
+                            break;
+                        case 1:
+                            finalJobs[member] = "AST";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Shields":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (shields[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "SCH";
+                            break;
+                        case 1:
+                            finalJobs[member] = "SGE";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Melees":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*5);
+                jobSpot = (member*5) + job;
+    
+                if (melees[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "MNK";
+                            break;
+                        case 1:
+                            finalJobs[member] = "DRG";
+                            break;
+                        case 2:
+                            finalJobs[member] = "NIN";
+                            break;
+                        case 3:
+                            finalJobs[member] = "SAM";
+                            break;
+                        case 4:
+                            finalJobs[member] = "RPR";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Ranged":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (ranged[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BRD";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "MCH";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DNC";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Casters":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (casters[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BLM";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "SMN";
+                            break;
+                        case 2:
+                            finalJobs[member] = "RDM";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+    }
+                console.log(member);
+                console.log(job);
+                console.log(jobSpot);
+                console.log(i);
+                console.log(needsJob);
+                console.log(finalJobs);
+    i = 0;
+    switch (amountOrderStrings[2]) {
+        case "Tanks":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*4);
+                jobSpot = (member*4) + job;
+    
+                if (tanks[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "PLD";
+                            break;
+                        case 1:
+                            finalJobs[member] = "WAR";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DRK";
+                            break;
+                        case 3:
+                            finalJobs[member] = "GNB";
+                    }
+
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Regens":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (regens[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "WHM";
+                            break;
+                        case 1:
+                            finalJobs[member] = "AST";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Shields":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (shields[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "SCH";
+                            break;
+                        case 1:
+                            finalJobs[member] = "SGE";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Melees":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*5);
+                jobSpot = (member*5) + job;
+    
+                if (melees[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "MNK";
+                            break;
+                        case 1:
+                            finalJobs[member] = "DRG";
+                            break;
+                        case 2:
+                            finalJobs[member] = "NIN";
+                            break;
+                        case 3:
+                            finalJobs[member] = "SAM";
+                            break;
+                        case 4:
+                            finalJobs[member] = "RPR";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Ranged":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (ranged[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BRD";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "MCH";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DNC";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Casters":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (casters[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BLM";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "SMN";
+                            break;
+                        case 2:
+                            finalJobs[member] = "RDM";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+    }
+                console.log(member);
+                console.log(job);
+                console.log(jobSpot);
+                console.log(i);
+                console.log(needsJob);
+                console.log(finalJobs);
+    i = 0;
+    switch (amountOrderStrings[3]) {
+        case "Tanks":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*4);
+                jobSpot = (member*4) + job;
+    
+                if (tanks[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "PLD";
+                            break;
+                        case 1:
+                            finalJobs[member] = "WAR";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DRK";
+                            break;
+                        case 3:
+                            finalJobs[member] = "GNB";
+                    }
+
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Regens":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (regens[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "WHM";
+                            break;
+                        case 1:
+                            finalJobs[member] = "AST";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Shields":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (shields[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "SCH";
+                            break;
+                        case 1:
+                            finalJobs[member] = "SGE";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Melees":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*5);
+                jobSpot = (member*5) + job;
+    
+                if (melees[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "MNK";
+                            break;
+                        case 1:
+                            finalJobs[member] = "DRG";
+                            break;
+                        case 2:
+                            finalJobs[member] = "NIN";
+                            break;
+                        case 3:
+                            finalJobs[member] = "SAM";
+                            break;
+                        case 4:
+                            finalJobs[member] = "RPR";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Ranged":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (ranged[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BRD";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "MCH";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DNC";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Casters":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (casters[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BLM";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "SMN";
+                            break;
+                        case 2:
+                            finalJobs[member] = "RDM";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+    }
+                console.log(member);
+                console.log(job);
+                console.log(jobSpot);
+                console.log(i);
+                console.log(needsJob);
+                console.log(finalJobs);
+    i = 0;
+    switch (amountOrderStrings[4]) {
+        case "Tanks":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*4);
+                jobSpot = (member*4) + job;
+    
+                if (tanks[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "PLD";
+                            break;
+                        case 1:
+                            finalJobs[member] = "WAR";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DRK";
+                            break;
+                        case 3:
+                            finalJobs[member] = "GNB";
+                    }
+
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+
+            }
+            break
+
+        case "Regens":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (regens[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "WHM";
+                            break;
+                        case 1:
+                            finalJobs[member] = "AST";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Shields":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (shields[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "SCH";
+                            break;
+                        case 1:
+                            finalJobs[member] = "SGE";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Melees":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*5);
+                jobSpot = (member*5) + job;
+    
+                if (melees[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "MNK";
+                            break;
+                        case 1:
+                            finalJobs[member] = "DRG";
+                            break;
+                        case 2:
+                            finalJobs[member] = "NIN";
+                            break;
+                        case 3:
+                            finalJobs[member] = "SAM";
+                            break;
+                        case 4:
+                            finalJobs[member] = "RPR";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Ranged":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (ranged[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BRD";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "MCH";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DNC";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Casters":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (casters[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BLM";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "SMN";
+                            break;
+                        case 2:
+                            finalJobs[member] = "RDM";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+    }
+                console.log(member);
+                console.log(job);
+                console.log(jobSpot);
+                console.log(i);
+                console.log(needsJob);
+                console.log(finalJobs);
+    i = 0;
+    switch (amountOrderStrings[5]) {
+        case "Tanks":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*4);
+                jobSpot = (member*4) + job;
+    
+                if (tanks[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "PLD";
+                            break;
+                        case 1:
+                            finalJobs[member] = "WAR";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DRK";
+                            break;
+                        case 3:
+                            finalJobs[member] = "GNB";
+                    }
+
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Regens":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (regens[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "WHM";
+                            break;
+                        case 1:
+                            finalJobs[member] = "AST";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Shields":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*2);
+                jobSpot = (member*2) + job;
+    
+                if (shields[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "SCH";
+                            break;
+                        case 1:
+                            finalJobs[member] = "SGE";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Melees":
+            while (i < 2){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*5);
+                jobSpot = (member*5) + job;
+    
+                if (melees[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "MNK";
+                            break;
+                        case 1:
+                            finalJobs[member] = "DRG";
+                            break;
+                        case 2:
+                            finalJobs[member] = "NIN";
+                            break;
+                        case 3:
+                            finalJobs[member] = "SAM";
+                            break;
+                        case 4:
+                            finalJobs[member] = "RPR";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Ranged":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (ranged[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BRD";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "MCH";
+                            break;
+                        case 2:
+                            finalJobs[member] = "DNC";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+
+        case "Casters":
+            while (i < 1){
+                member = Math.floor(Math.random()*8);
+                job = Math.floor(Math.random()*3);
+                jobSpot = (member*3) + job;
+    
+                if (casters[jobSpot] && needsJob[member]){
+                    switch (job) {
+                        case 0: 
+                            finalJobs[member] = "BLM";
+                            break;
+                        case 1: 
+                            finalJobs[member] = "SMN";
+                            break;
+                        case 2:
+                            finalJobs[member] = "RDM";
+                    }
+                    needsJob[member] = false;
+                    i++;    
+                }
+                else {
+                        member = 0;
+                        job = 0;
+                        jobSpot  = 0;
+                }
+            }
+            break
+    }
+                console.log(member);
+                console.log(job);
+                console.log(jobSpot);
+                console.log(i);
+                console.log(needsJob);
+                console.log(finalJobs);
+    i = 0;
+}
+
+function printInfo(){
+    document.getElementById("results1").innerHTML = staticNames[0] + " will be " + finalJobs[0];
+    document.getElementById("results2").innerHTML = staticNames[1] + " will be " + finalJobs[1];
+    document.getElementById("results3").innerHTML = staticNames[2] + " will be " + finalJobs[2];
+    document.getElementById("results4").innerHTML = staticNames[3] + " will be " + finalJobs[3];
+    document.getElementById("results5").innerHTML = staticNames[4] + " will be " + finalJobs[4];
+    document.getElementById("results6").innerHTML = staticNames[5] + " will be " + finalJobs[5];
+    document.getElementById("results7").innerHTML = staticNames[6] + " will be " + finalJobs[6];
+    document.getElementById("results8").innerHTML = staticNames[7] + " will be " + finalJobs[7];
+    document.getElementById("resultsFull").innerHTML = "There are " + amountOrder[0] + " " + amountOrderStrings[0] + ", " +
+        amountOrder[1] + " " + amountOrderStrings[1] + ", " + amountOrder[2] + " " + amountOrderStrings[2] + ", " + 
+        amountOrder[3] + " " + amountOrderStrings[3] + ", " + amountOrder[4] + " " + amountOrderStrings[4] + ", and " + 
+        amountOrder[5] + " " + amountOrderStrings[5] +".";
+    // document.getElementById("resultsFull").innerHTML = "There are " + tanksAmount + " tanks, " + regensAmount + 
+    //         " regen healers, " + shieldsAmount + " shield healers, " + meleesAmount + " melees, " 
+    //         + rangedAmount + " ranged, and " + castersAmount + " casters.";
+}
+
+//clears variables after each execution
+function resetValues(){
+    staticNames = [];
+
+    jobs1 = [];
+    jobs2 = [];
+    jobs3 = [];
+    jobs4 = [];
+    jobs5 = [];
+    jobs6 = [];
+    jobs7 = [];
+    jobs8 = [];
+
+    tanks = [];
+    regens = [];
+    shields = [];
+    casters = [];
+    melees = [];
+    ranged = [];
+
+    tanksAmount = 0;
+    regensAmount = 0;
+    shieldsAmount = 0;
+    castersAmount = 0;
+    meleesAmount = 0;
+    rangedAmount = 0;
+    amountOrder = [];
+    amountOrderStrings = [];
+
+    finalJob1 = "";
+    finalJob2 = "";
+    finalJob3 = "";
+    finalJob4 = "";
+    finalJob5 = "";
+    finalJob6 = "";
+    finalJob7 = "";
+    finalJob8 = "";
+    finalJobs = ["","","","","","","",""];
+
+    needsJob = [true, true, true, true, true, true, true, true];
+
 }
 
 //function
@@ -488,4 +1772,13 @@ function getNumberOfJobs(){
 function formCompiler(){
     formToArray();
     getNumberOfJobs();
+    pickJobs();
+    printInfo();
+    resetValues();
 }
+
+function testFunction(){
+    alert ("hello");
+}
+
+document.getElementById("formSubmit").addEventListener("click",formCompiler);
