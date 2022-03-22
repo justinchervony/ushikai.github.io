@@ -27,14 +27,6 @@ var amountOrderStrings = [];
 
 var needsJob = [true, true, true, true, true, true, true, true];
 
-var finalJob1 = "";
-var finalJob2 = "";
-var finalJob3 = "";
-var finalJob4 = "";
-var finalJob5 = "";
-var finalJob6 = "";
-var finalJob7 = "";
-var finalJob8 = "";
 var finalJobs = ["","","","","","","",""]
 
 
@@ -619,7 +611,7 @@ function pickJobs(){
     var job = 0;
     var jobSpot  = 0;
     var i = 0;
-    //var y = amountOrderStrings
+    var y = 0;
 
     switch (amountOrderStrings[0]) {
         case "Tanks":
@@ -641,6 +633,9 @@ function pickJobs(){
                             break;
                         case 3:
                             finalJobs[member] = "GNB";
+                            break;
+                        default:
+                            pickJobs();
                     }
 
                     needsJob[member] = false;
@@ -667,6 +662,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "AST";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -692,6 +690,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "SGE";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -726,6 +727,9 @@ function pickJobs(){
                             break;
                         case 4:
                             finalJobs[member] = "RPR";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -754,6 +758,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "DNC";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -782,6 +789,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "RDM";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -823,6 +833,9 @@ function pickJobs(){
                             break;
                         case 3:
                             finalJobs[member] = "GNB";
+                            break;
+                        default:
+                            pickJobs();
                     }
 
                     needsJob[member] = false;
@@ -849,6 +862,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "AST";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -874,6 +890,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "SGE";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -908,6 +927,9 @@ function pickJobs(){
                             break;
                         case 4:
                             finalJobs[member] = "RPR";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -936,6 +958,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "DNC";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -964,6 +989,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "RDM";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1003,6 +1031,9 @@ function pickJobs(){
                             break;
                         case 3:
                             finalJobs[member] = "GNB";
+                            break;
+                        default:
+                            pickJobs();
                     }
 
                     needsJob[member] = false;
@@ -1029,6 +1060,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "AST";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1054,6 +1088,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "SGE";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1088,6 +1125,9 @@ function pickJobs(){
                             break;
                         case 4:
                             finalJobs[member] = "RPR";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1116,6 +1156,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "DNC";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1144,6 +1187,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "RDM";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1183,6 +1229,9 @@ function pickJobs(){
                             break;
                         case 3:
                             finalJobs[member] = "GNB";
+                            break;
+                        default:
+                            pickJobs();
                     }
 
                     needsJob[member] = false;
@@ -1209,6 +1258,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "AST";
+                            break;
+                        default:
+                            pickJobs();
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1234,6 +1286,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "SGE";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1268,6 +1323,9 @@ function pickJobs(){
                             break;
                         case 4:
                             finalJobs[member] = "RPR";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1296,6 +1354,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "DNC";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1324,6 +1385,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "RDM";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1363,6 +1427,9 @@ function pickJobs(){
                             break;
                         case 3:
                             finalJobs[member] = "GNB";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
 
                     needsJob[member] = false;
@@ -1390,6 +1457,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "AST";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1415,6 +1485,9 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "SGE";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1449,6 +1522,9 @@ function pickJobs(){
                             break;
                         case 4:
                             finalJobs[member] = "RPR";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1477,6 +1553,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "DNC";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1505,6 +1584,9 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "RDM";
+                            break;
+                        default:
+                            pickJobs();                            
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1544,6 +1626,7 @@ function pickJobs(){
                             break;
                         case 3:
                             finalJobs[member] = "GNB";
+                            break;                       
                     }
 
                     needsJob[member] = false;
@@ -1570,6 +1653,7 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "AST";
+                            break;                    
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1595,6 +1679,7 @@ function pickJobs(){
                             break;
                         case 1:
                             finalJobs[member] = "SGE";
+                            break;                       
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1612,6 +1697,7 @@ function pickJobs(){
                 member = Math.floor(Math.random()*8);
                 job = Math.floor(Math.random()*5);
                 jobSpot = (member*5) + job;
+                y = member*5;
     
                 if (melees[jobSpot] && needsJob[member]){
                     switch (job) {
@@ -1629,9 +1715,15 @@ function pickJobs(){
                             break;
                         case 4:
                             finalJobs[member] = "RPR";
+                            break;                           
                     }
                     needsJob[member] = false;
                     i++;    
+                }
+
+                else if (member == 2 && needsJob[member]){
+                     //alert("Error: Job cannot be assigned due to lack of selection. Please try again.");
+                     break
                 }
                 else {
                         member = 0;
@@ -1657,6 +1749,7 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "DNC";
+                            break;                    
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1685,6 +1778,7 @@ function pickJobs(){
                             break;
                         case 2:
                             finalJobs[member] = "RDM";
+                            break;                      
                     }
                     needsJob[member] = false;
                     i++;    
@@ -1753,14 +1847,6 @@ function resetValues(){
     amountOrder = [];
     amountOrderStrings = [];
 
-    finalJob1 = "";
-    finalJob2 = "";
-    finalJob3 = "";
-    finalJob4 = "";
-    finalJob5 = "";
-    finalJob6 = "";
-    finalJob7 = "";
-    finalJob8 = "";
     finalJobs = ["","","","","","","",""];
 
     needsJob = [true, true, true, true, true, true, true, true];
@@ -1775,10 +1861,6 @@ function formCompiler(){
     pickJobs();
     printInfo();
     resetValues();
-}
-
-function testFunction(){
-    alert ("hello");
 }
 
 document.getElementById("formSubmit").addEventListener("click",formCompiler);
